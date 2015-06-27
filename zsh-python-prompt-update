@@ -4,9 +4,6 @@
 
 
 function _zsh_python_prompt_pyenv(){
-    #/usr/local/Cellar/python/2.7.8_1/Frameworks/Python.framework/Versions/2.7/bin/python2.7
-    #~/.pyenv/versions/2.7.8/bin/python2.7
-    #~/.pyenv/versions/pyenv_t/bin/python
 
     local python_path pyver pytype now pyver_file \
         prompt prompt_cache updated_at pyenv_expire_sec pyenv_symbol
@@ -39,7 +36,7 @@ function _zsh_python_prompt_pyenv(){
     if [[ $python_path == '/usr/bin/python' ]]; then
         pytype='system'
     elif [[ $python_path =~ '^/usr/local' ]]; then
-        pytype='local'
+        pytype='usr'
     elif [[ $python_path =~ '/.pyenv/versions/' ]]; then
         pytype=$(echo "$python_path" | sed -e 's%.*\.pyenv/versions/\([^/]*\)/.*%\1%')
         if [[ $pytype == $pyver ]]; then
